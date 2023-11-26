@@ -1,0 +1,99 @@
+
+//+------------------------------------------------------------------+
+//|                                                  Small to Big EA MT4|
+//|                                          https://www.forexroboteasy.com |
+//|                                       Developed by Forex Robot Easy Team|
+//+------------------------------------------------------------------+
+
+// Define the supported currency pairs
+string[] currencyPairs = {'AUDCAD', 'AUDNZD'};
+
+// Define the timeframe for trading operations
+ENUM_TIMEFRAMES timeframe = PERIOD_H1;
+
+//+------------------------------------------------------------------+
+//|                                               Initialization of EA|
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Set up necessary indicators and variables
+    // ...
+    
+    return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//|                                                            EA Loop|
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Check if trading conditions are met
+    if (IsTradingConditionsMet())
+    {
+        // Perform necessary calculations and analysis
+        // ...
+        
+        // Adjust take profit based on exposure and volatility
+        double takeProfit = CalculateTakeProfit();
+        
+        // Adjust grid order distance based on number of trades and volatility
+        double gridOrderDistance = CalculateGridOrderDistance();
+        
+        // Perform the trade
+        Trade(takeProfit, gridOrderDistance);
+    }
+}
+
+//+------------------------------------------------------------------+
+//|                                        Check if Trading Conditions Met|
+//+------------------------------------------------------------------+
+bool IsTradingConditionsMet()
+{
+    // Implement the logic to check if trading conditions are met
+    // ...
+    
+    return true; // Return true if conditions are met, false otherwise
+}
+
+//+------------------------------------------------------------------+
+//|                                                   Calculate Take Profit|
+//+------------------------------------------------------------------+
+double CalculateTakeProfit()
+{
+    // Implement the logic to calculate the dynamic take profit
+    // ...
+    
+    return 0.0; // Return the calculated take profit value
+}
+
+//+------------------------------------------------------------------+
+//|                                               Calculate Grid Order Distance|
+//+------------------------------------------------------------------+
+double CalculateGridOrderDistance()
+{
+    // Implement the logic to calculate the dynamic grid order distance
+    // ...
+    
+    return 0.0; // Return the calculated grid order distance
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  Trade|
+//+------------------------------------------------------------------+
+void Trade(double takeProfit, double gridOrderDistance)
+{
+    // Implement the code to perform the trade
+    // ...
+    
+    // Print trade details for logging and analysis
+    Print('Trade executed with take profit: ', DoubleToString(takeProfit), ' and grid order distance: ', DoubleToString(gridOrderDistance));
+}
+
+//+------------------------------------------------------------------+
+//|                                                            Deinitialization|
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Clean up any resources used by the EA
+    // ...
+}
